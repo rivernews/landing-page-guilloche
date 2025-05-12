@@ -1,0 +1,26 @@
+.AccordionSection:not(:first-of-type) {
+    margin-top: 48px;
+}
+
+.AccordionSection__heading {
+    font-size: 24px;
+    font-family: "Cern Extra-bold";
+}
+
+.AccordionItem {
+    padding: 24px 0;
+    border-bottom: 1px solid lightgray;
+    cursor: pointer;
+}
+
+.AccordionItem__title {
+    font-family: "Cern Bold";
+}
+
+.AccordionItem__description {
+    display: none;
+}
+.AccordionItem__description--expanded {
+    color: rgb(135, 135, 135);
+    display: block;
+}

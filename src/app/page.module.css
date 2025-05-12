@@ -1,0 +1,86 @@
+@property --page-top-edge-spacing {
+    syntax: "<length>";
+    initial-value: 45px;
+    inherits: false;
+}
+@property --page-top-content-spacing {
+    syntax: "<length>";
+    initial-value: 128px;
+    inherits: false;
+}
+
+.LandingPage__backgroundImage {
+    position: relative;
+}
+
+.LandingPage__backgroundImage::before {
+    position: absolute;
+    top:0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    background-image: url("/bg.svg");
+    background-repeat: repeat-x;
+    background-size: 200%;
+    background-attachment: fixed;
+    background-position: left center;
+    content: "";
+    animation: slideRight 10s linear infinite;
+
+}
+
+@keyframes slideRight {
+    0% {
+        opacity: 0;
+        background-position: 0% center;
+    }
+    5% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        background-position: 100% center;
+    }
+}
+
+.PageContent {
+    padding: var(--page-top-content-spacing) 32px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.NavigationBar {
+    top: var(--page-top-edge-spacing);
+    left: var(--page-top-edge-spacing);
+    position: fixed;
+    font-family: "Cern Semi-bold";
+    font-size: 20px;
+    /* z-index: -1; */
+
+    width: calc(100vw - 2 * var(--page-top-edge-spacing));
+    display: flex;
+    justify-content: space-between;
+}
+.NavigationBar__tailLink {
+    border-bottom: 1px solid black;
+}
+
+.StickyHero {
+    position: sticky;
+    top: 128px;
+    max-height: calc(90vh - var(--page-top-content-spacing) - var(--page-top-edge-spacing));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    font-family: "Cern Extra-bold";
+    font-size: 200px;
+    line-height: 10rem;
+
+    text-transform: uppercase;
+}
